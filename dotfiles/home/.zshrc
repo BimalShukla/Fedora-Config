@@ -69,7 +69,8 @@ alias lla='eza -laF --icons'
 
 # GIT
 alias gc='git clone'
-alias gp='git pull'
+alias gpull='git pull'
+alias gpush='git push'
 
 # Applications
 alias v='nvim'

@@ -1,6 +1,6 @@
 # 🐧 Fedora Post-Installation & Configuration Scripts  
 
-🗓️ **Updated on:** _November, 2025  _
+🗓️ **Updated on:** _November, 2025_
 
 Automated scripts to help you quickly set up a ready-to-use **Fedora** environment.
 

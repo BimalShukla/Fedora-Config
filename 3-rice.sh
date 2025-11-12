@@ -52,7 +52,9 @@ dnf install -y \
 
 # === 4. System tweaks ===
 log "Applying system tweaks..."
-hostnamectl set-hostname ares
+read -p "Enter the desired hostname: " NEW_HOSTNAME
+hostnamectl set-hostname "$NEW_HOSTNAME" 
+log "Hostname set to $NEW_HOSTNAME"
 timedatectl set-local-rtc 0
 grubby --update-kernel=ALL --args="nvidia-drm.modeset=1"
 systemctl disable NetworkManager-wait-online.service 2>/dev/null || true

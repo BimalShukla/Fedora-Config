@@ -24,7 +24,6 @@ dnf install -y \
     xorg-x11-drv-nvidia-cuda-libs \
     xorg-x11-drv-nvidia-libs \
     libva-nvidia-driver \
-    nvidia-vaapi-driver \
     || true
 
 log "Installation complete. Now waiting for akmod to build kernel modules..."

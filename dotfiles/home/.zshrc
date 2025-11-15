@@ -40,19 +40,19 @@ fastfetch
 
 #==================== User Defined Aliases ====================#
 # DNF
-alias upgrade='sudo dnf upgrade --refresh'
-alias update='sudo dnf update'
-alias install='sudo dnf install'
-alias remove='sudo dnf remove'
+alias upg='sudo dnf upgrade --refresh'
+alias upd='sudo dnf update'
+alias ins='sudo dnf install'
+alias rmv='sudo dnf remove'
 alias clean='sudo dnf clean all'
 alias autoremove='sudo dnf autoremove'
 alias autoclean='sudo dnf clean all && autoremove'
-alias search='dnf search'
+alias src='dnf search'
 
 # COPR
 alias cenable='sudo dnf copr enable'
 alias cdisable='sudo dnf copr disable'
-alias cremove='sudo dnf copr remove'
+alias crmv='sudo dnf copr remove'
 alias clist='dnf copr list'
 
 # FZF
@@ -68,8 +68,11 @@ alias la='eza -aF --icons'
 alias lla='eza -laF --icons'
 
 # GIT
-alias gc='git clone'
+alias gstat='git status'
+alias gclone='git clone'
 alias gpull='git pull'
+alias gadd='git add'
+alias gcomm='git commit'
 alias gpush='git push'
 
 # Applications

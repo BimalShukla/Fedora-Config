@@ -41,7 +41,7 @@ function y() {
 
 ## User Defined Aliases
 # DNF
-alias upg= 'sudo dnf upgrade -y --refresh'
+alias upg= 'sudo dnf upgrade --refresh'
 alias upd='sudo dnf update'
 alias ins='sudo dnf install'
 alias rmv='sudo dnf remove'

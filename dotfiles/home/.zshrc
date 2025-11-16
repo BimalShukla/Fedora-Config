@@ -48,7 +48,7 @@ alias rmv='sudo dnf remove'
 alias clean='sudo dnf clean all'
 alias src='dnf search'
 alias autoclean='sudo dnf autoremove && dnf clean all'
-alias autoremove='sudo dnf autoremove'
+alias autormv='sudo dnf autoremove'
 
 # COPR
 alias cenable='sudo dnf copr enable'

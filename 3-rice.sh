@@ -14,6 +14,11 @@ info()  { echo -e "${BLUE}[i]${NC} $*"; }
 
 [[ $EUID -eq 0 ]] || { echo -e "${RED}ERROR: Run with sudo${NC}"; exit 1; }
 
+read -p "Enter the desired hostname: " NEW_HOSTNAME
+hostnamectl set-hostname "$NEW_HOSTNAME" 
+log "Hostname set to $NEW_HOSTNAME"
+timedatectl set-local-rtc 0
+
 # === 1. Full multimedia liberation ===
 log "Unleashing full multimedia power..."
 dnf4 group install multimedia -y 2>/dev/null || dnf group install multimedia -y
@@ -52,10 +57,6 @@ dnf install -y \
 
 # === 4. System tweaks ===
 log "Applying system tweaks..."
-read -p "Enter the desired hostname: " NEW_HOSTNAME
-hostnamectl set-hostname "$NEW_HOSTNAME" 
-log "Hostname set to $NEW_HOSTNAME"
-timedatectl set-local-rtc 0
 grubby --update-kernel=ALL --args="nvidia-drm.modeset=1"
 systemctl disable NetworkManager-wait-online.service 2>/dev/null || true
 

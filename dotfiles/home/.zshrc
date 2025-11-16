@@ -27,6 +27,9 @@ eval "$(starship init zsh)"
 ## Zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
+## Fastfetch
+fastfetch
+
 ## YAZI
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -38,11 +41,14 @@ function y() {
 
 ## User Defined Aliases
 # DNF
-alias update='sudo dnf update'
-alias install='sudo dnf install'
-alias remove='sudo dnf remove'
+alias upg= 'sudo dnf upgrade -y --refresh'
+alias upd='sudo dnf update'
+alias ins='sudo dnf install'
+alias rmv='sudo dnf remove'
 alias clean='sudo dnf clean all'
-alias search='dnf search'
+alias src='dnf search'
+alias autoclean='sudo dnf autoremove && dnf clean all'
+alias autoremove='sudo dnf autoremove'
 
 # COPR
 alias cenable='sudo dnf copr enable'
@@ -62,10 +68,13 @@ alias ll='eza -lF --icons'
 alias la='eza -aF --icons'
 alias lla='eza -laF --icons'
 
-alias cat='bat'
-
 # GIT
-alias gc='git clone'
+alias gcl='git clone'
+alias gcm='git commit'
+alias gpl='git pull'
+alias gps='git push'
+alias gad='git add .'
+alias gst='git status'
 
 # Applications
 alias v='nvim'

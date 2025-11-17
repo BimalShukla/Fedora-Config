@@ -68,9 +68,17 @@ log "Deploying dotfiles for $SUDO_USER..."
 USER_HOME=$(eval echo ~$SUDO_USER)    # works even if user has weird home dir
 
 shopt -s nullglob dotglob
-cp -r ./dotfiles/home/*    "$USER_HOME"/
-cp -r ./dotfiles/config/*  "$USER_HOME/.config/"
-cp -r ./dotfiles/fonts     "$USER_HOME/.local/share/"
+
+mkdir -p "$USER_HOME/.zsh/plugins/{zsh-completions,zsh-history-substring-search,zsh-syntax-highlighting,zsh-autosuggestions}"
+
+git clone https://github.com/zsh-users/zsh-completions.git "$USER_HOME/.zsh/plugins/zsh-completions"
+git clone https://github.com/zsh-users/zsh-history-substring-search.git "$USER_HOME/.zsh/plugins/zsh-history-substring-search"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$USER_HOME/.zsh/plugins/zsh-syntax-highlighting"
+git clone https://github.com/zsh-users/zsh-autosuggestions.git "$USER_HOME/.zsh/plugins/zsh-autosuggestions"
+
+cp -r ./dotfiles/home/{.zshrc,.bashrc} "$USER_HOME"/
+cp -r ./dotfiles/config/* "$USER_HOME/.config/"
+cp -r ./dotfiles/fonts "$USER_HOME/.local/share/"
 
 chown -R "$SUDO_USER:$SUDO_USER" "$USER_HOME"/{.config,.local,.*} 2>/dev/null || true
 fc-cache -fv >/dev/null 2>&1 || true

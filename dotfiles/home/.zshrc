@@ -68,12 +68,12 @@ alias la='eza -aF --icons'
 alias lla='eza -laF --icons'
 
 # GIT
-alias gclo='git clone'
-alias gcom='git commit'
-alias gpul='git pull'
-alias gpus='git push'
+alias gclone='git clone'
+alias gcommit='git commit'
+alias gpull='git pull'
+alias gpush='git push'
 alias gadd='git add .'
-alias gsta='git status'
+alias gstat='git status'
 
 # Applications
 alias v='nvim'

@@ -87,17 +87,18 @@ Fedora-Config/
 
 ## 🙏 Credits
 
-### **Neovim**
+### **Configs**
+#### **Neovim**
 - **kickstart.nvim** → https://github.com/nvim-lua/kickstart.nvim  
 - **kickstart-modular.nvim** → https://github.com/dam9000/kickstart-modular.nvim
 
-### **ZSH Plugins**
+#### **ZSH Plugins**
 - https://github.com/zsh-users
   - zsh-syntax-highlighting → https://github.com/zsh-users/zsh-syntax-highlighting
   - zsh-autosuggestions → https://github.com/zsh-users/zsh-autosuggestions
   - zsh-completions → https://github.com/zsh-users/zsh-completions
   - zsh-history-substring-search → https://github.com/zsh-users/zsh-history-substring-search
 
-### **Ghostty**
+#### **Ghostty**
 - **DankMaterialShell** → https://github.com/AvengeMedia/DankMaterialShell
 

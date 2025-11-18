@@ -65,25 +65,36 @@ rm -f /etc/xdg/autostart/org.gnome.Software.desktop
 
 # === 5. Deploy dotfiles ===
 log "Deploying dotfiles for $SUDO_USER..."
-USER_HOME=$(eval echo ~$SUDO_USER)    # works even if user has weird home dir
 
-shopt -s nullglob dotglob
+USER_HOME=$(eval echo ~$SUDO_USER)
 
-## ZSH Plugins
-mkdir -p "$USER_HOME/.zsh/plugins/{zsh-completions,zsh-history-substring-search,zsh-syntax-highlighting,zsh-autosuggestions}"
+# Create directories as the user
+sudo -u "$SUDO_USER" mkdir -p "$USER_HOME/.zsh/plugins"
+sudo -u "$SUDO_USER" mkdir -p "$USER_HOME/.config/nvim"
+sudo -u "$SUDO_USER" mkdir -p "$USER_HOME/.local/share"
 
-git clone https://github.com/zsh-users/zsh-completions.git "$USER_HOME/.zsh/plugins/zsh-completions"
-git clone https://github.com/zsh-users/zsh-history-substring-search.git "$USER_HOME/.zsh/plugins/zsh-history-substring-search"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$USER_HOME/.zsh/plugins/zsh-syntax-highlighting"
-git clone https://github.com/zsh-users/zsh-autosuggestions.git "$USER_HOME/.zsh/plugins/zsh-autosuggestions"
+# Clone ZSH plugins as the user
+for plugin in zsh-completions \
+              zsh-history-substring-search \
+              zsh-syntax-highlighting \
+              zsh-autosuggestions
+do
+    sudo -u "$SUDO_USER" git clone \
+        "https://github.com/zsh-users/$plugin.git" \
+        "$USER_HOME/.zsh/plugins/$plugin"
+done
 
-## NeoVIM Config
-mkdir -p "$USER_HOME/.config/nvim"
-git clone https://github.com/BimalShukla/Neovim-Config.git "$USER_HOME/.config/nvim" 
 
-cp -r ./dotfiles/home/{.zshrc,.bashrc} "$USER_HOME"/
-cp -r ./dotfiles/config/* "$USER_HOME/.config/"
-cp -r ./dotfiles/fonts "$USER_HOME/.local/share/"
+# Clone NeoVim config
+sudo -u "$SUDO_USER" git clone \
+    https://github.com/BimalShukla/Neovim-Config.git \
+    "$USER_HOME/.config/nvim"
+
+# Copy your dotfiles as the user
+sudo -u "$SUDO_USER" cp -r ./dotfiles/home/{.zshrc,.bashrc} "$USER_HOME/"
+sudo -u "$SUDO_USER" cp -r ./dotfiles/config/* "$USER_HOME/.config/"
+sudo -u "$SUDO_USER" cp -r ./dotfiles/fonts "$USER_HOME/.local/share/"
+
 
 chown -R "$SUDO_USER:$SUDO_USER" "$USER_HOME"/{.config,.local,.*} 2>/dev/null || true
 fc-cache -fv >/dev/null 2>&1 || true

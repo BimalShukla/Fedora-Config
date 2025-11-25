@@ -70,8 +70,9 @@ USER_HOME=$(eval echo ~$SUDO_USER)
 
 # Create directories as the user
 sudo -u "$SUDO_USER" mkdir -p "$USER_HOME/.zsh/plugins"
-sudo -u "$SUDO_USER" mkdir -p "$USER_HOME/.config/nvim"
 sudo -u "$SUDO_USER" mkdir -p "$USER_HOME/.local/share"
+sudo -u "$SUDO_USER" mkdir -p "$USER_HOME/.config/nvim"
+sudo -u "$SUDO_USER" mkdir -p "$USER_HOME/.config/fastfetch"
 
 # Clone ZSH plugins as the user
 for plugin in zsh-completions \
@@ -89,6 +90,11 @@ done
 sudo -u "$SUDO_USER" git clone \
     https://github.com/BimalShukla/Neovim-Config.git \
     "$USER_HOME/.config/nvim"
+
+# Clone Fastfetch config
+sudo -u "$SUDO_USER" git clone \
+    https://github.com/BimalShukla/Fastfetch-Config.git \
+    "$USER_HOME/.config/fastfetch"
 
 # Copy your dotfiles as the user
 sudo -u "$SUDO_USER" cp -r ./dotfiles/home/{.zshrc,.bashrc} "$USER_HOME/"

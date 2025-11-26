@@ -44,6 +44,7 @@ for repo in \
     lihaohong/yazi \
     sneexy/zen-browser \
     scottames/ghostty \
+    dejan/lazygit \
 ; do
     dnf copr enable -y "$repo" && log "Enabled $repo" || warn "$repo already enabled"
 done
@@ -53,7 +54,7 @@ log "Installing your apps..."
 dnf install -y \
     unzip p7zip p7zip-plugins unrar \
     zed eza starship yazi zen-browser ghostty \
-    zsh bat neovim git fastfetch fzf zoxide
+    zsh bat neovim git fastfetch fzf zoxide lazygit
 
 # === 4. System tweaks ===
 log "Applying system tweaks..."

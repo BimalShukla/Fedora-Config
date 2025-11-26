@@ -67,6 +67,9 @@ alias ll='eza -lF --icons'
 alias la='eza -aF --icons'
 alias lla='eza -laF --icons'
 
+# LazyGIT
+alias lg='lazygit'
+
 # GIT
 alias gclone='git clone'
 alias gcommit='git commit'

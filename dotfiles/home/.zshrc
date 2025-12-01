@@ -71,12 +71,8 @@ alias lla='eza -laF --icons'
 alias lg='lazygit'
 
 # GIT
-alias gclone='git clone'
-alias gcommit='git commit'
-alias gpull='git pull'
-alias gpush='git push'
-alias gadd='git add .'
-alias gstat='git status'
+alias gc='git clone'
+alias gs='git status'
 
 # Applications
 alias v='nvim'

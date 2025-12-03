@@ -41,19 +41,24 @@ function y() {
 
 ## User Defined Aliases
 # DNF
-alias upd='sudo dnf update'
-alias ins='sudo dnf install'
-alias rmv='sudo dnf remove'
+alias update='sudo dnf update'
+alias install='sudo dnf install'
+alias remove='sudo dnf remove'
 alias clean='sudo dnf clean all'
 alias src='dnf search'
 alias autoclean='sudo dnf autoremove && clean all'
-alias autormv='sudo dnf autoremove'
 
 # COPR
 alias cenable='sudo dnf copr enable'
 alias cdisable='sudo dnf copr disable'
 alias cremove='sudo dnf copr remove'
 alias clist='dnf copr list'
+
+# Flatpak
+alias fplist='flatpak list'
+alias fpupdate='sudo flatpak update'
+alias fpinstall='sudo flatpak install'
+alias fpremove='sudo flatpak uninstall'
 
 # FZF
 source <(fzf --zsh) #CTRL R for fuzzy history finder

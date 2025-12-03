@@ -56,9 +56,10 @@ alias clist='dnf copr list'
 
 # Flatpak
 alias fplist='flatpak list'
-alias fpupdate='sudo flatpak update'
-alias fpinstall='sudo flatpak install'
-alias fpremove='sudo flatpak uninstall'
+alias fpup='sudo flatpak update'
+alias fpin='sudo flatpak install'
+alias fprm='sudo flatpak uninstall'
+alias fprmunused='flatpak uninstall --unused'
 
 # FZF
 source <(fzf --zsh) #CTRL R for fuzzy history finder

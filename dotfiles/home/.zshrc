@@ -68,10 +68,9 @@ alias ffm='fzf --multi'
 
 # Command
 # ls command
-alias ls='eza -F --icons'
+alias l='eza -laF --icons'
+alias la='eza -laF --icons'
 alias ll='eza -lF --icons'
-alias la='eza -aF --icons'
-alias lla='eza -laF --icons'
 
 # LazyGIT
 alias lg='lazygit'
@@ -84,3 +83,5 @@ alias gs='git status'
 alias v='nvim'
 alias sv='sudo nvim'
 
+
+. "$HOME/.local/bin/env"
